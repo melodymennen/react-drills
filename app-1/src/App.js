@@ -3,6 +3,18 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super()
+
+    this.state ={
+      userInput: ''
+    }
+  }
+
+  handleChange(input){
+    this.setState({userInput: input})
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,7 +23,8 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <input onChange={event => this.handleChange(event.target.value)}/>
+          <p>{this.state.userInput}</p>
         </p>
       </div>
     );
